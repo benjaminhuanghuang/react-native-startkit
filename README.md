@@ -2,6 +2,7 @@
 
 ## Reference
 - React Native Tutorial (https://www.youtube.com/watch?v=FUdy4PHIbww)
+- QQ Login https://github.com/BrokerXu/QQLogin
 
 ## Steps
 - https://facebook.github.io/react-native/docs/getting-started.html
