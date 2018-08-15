@@ -11,12 +11,11 @@ export default class LoginView extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image style={{ width: 70, height: 70, alignSelf: 'center', marginTop: 30 }}
-          source={require('./imgs/qq.png')} />
+        <Image style={styles.avatar} source={require('./imgs/avatar.png')} />
         <TextInput style={styles.name}
-          placeholder={'QQ号/手机号/邮箱'}
+          placeholder='QQ号/手机号/邮箱ddd'
           numberOfLines={1}
-          underlineColorAndroid={'transparent'}
+          underlineColorAndroid='transparent'
           autoFocus={false}
           textAlign="center" />
         <View style={{ height: 1, backgroundColor: '#f4f4f4' }} />
@@ -33,7 +32,7 @@ export default class LoginView extends Component {
         <View style={{ flexDirection: 'row', marginTop: 13, alignItems: 'flex-end' }}>
           <Text style={{ marginLeft: 10, color: '#1E90FF' }}>
             忘记密码？
-                  </Text>
+          </Text>
           <Text style={{
             marginRight: 10,
             color: '#1E90FF',
@@ -42,7 +41,13 @@ export default class LoginView extends Component {
             flex: 1
           }}>
             新用户注册
-                  </Text>
+          </Text>
+        </View>
+        <View style={{ flexDirection: 'row', marginTop: 13, alignItems: 'flex-end' }}>
+          <Text>其他登录方式</Text>
+          <Image style={styles.loginMethod} source={require('./imgs/qq.png')} />
+          <Image style={styles.loginMethod} source={require('./imgs/wechat.png')} />
+          <Image style={styles.loginMethod} source={require('./imgs/weibo.png')} />
         </View>
       </View>
     );
@@ -52,7 +57,14 @@ export default class LoginView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F4F4F4',
+    backgroundColor: '#dddddd',
+  },
+
+  avatar: {
+    width: 70,
+    height: 70,
+    alignSelf: 'center',
+    marginTop: 30
   },
 
   name: {
@@ -78,4 +90,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 5,
   },
+
+  loginMethod:{
+    width: 40,
+    height: 40,
+    alignSelf: 'center',
+    marginTop: 30
+  }
 });
