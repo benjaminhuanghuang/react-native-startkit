@@ -12,42 +12,32 @@ export default class LoginView extends Component {
     return (
       <View style={styles.container}>
         <Image style={styles.avatar} source={require('./imgs/avatar.png')} />
-        <TextInput style={styles.name}
+        <TextInput style={styles.textInput}
           placeholder='QQ号/手机号/邮箱ddd'
           numberOfLines={1}
           underlineColorAndroid='transparent'
-          autoFocus={false}
-          textAlign="center" />
-        <View style={{ height: 1, backgroundColor: '#f4f4f4' }} />
-        <TextInput style={styles.password}
+          autoFocus={false} />
+        <TextInput style={styles.textInput}
           placeholder={'密码'}
           numberOfLines={1}
           underlineColorAndroid={'transparent'}
-          secureTextEntry={true}
-          textAlign="center"
-        />
+          secureTextEntry={true} />
         <View style={styles.login}>
-          <Text>登录</Text>
+          <Text style={{ color: '#FFF' }}>登录</Text>
         </View>
-        <View style={{ flexDirection: 'row', marginTop: 13, alignItems: 'flex-end' }}>
-          <Text style={{ marginLeft: 10, color: '#1E90FF' }}>
+        <View style={styles.settings}>
+          <Text style={{ color: '#1E90FF' }}>
             忘记密码？
           </Text>
-          <Text style={{
-            marginRight: 10,
-            color: '#1E90FF',
-            alignItems: 'flex-end',
-            textAlign: 'right',
-            flex: 1
-          }}>
+          <Text style={{ color: '#1E90FF' }}>
             新用户注册
           </Text>
         </View>
-        <View style={{ flexDirection: 'row', marginTop: 13, alignItems: 'flex-end' }}>
+        <View style={styles.loginMethods}>
           <Text>其他登录方式</Text>
-          <Image style={styles.loginMethod} source={require('./imgs/qq.png')} />
-          <Image style={styles.loginMethod} source={require('./imgs/wechat.png')} />
-          <Image style={styles.loginMethod} source={require('./imgs/weibo.png')} />
+          <Image style={styles.loginIcon} source={require('./imgs/qq.png')} />
+          <Image style={styles.loginIcon} source={require('./imgs/wechat.png')} />
+          <Image style={styles.loginIcon} source={require('./imgs/weibo.png')} />
         </View>
       </View>
     );
@@ -58,43 +48,60 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#dddddd',
+    alignItems: 'center'  // all sub items align to center
   },
 
   avatar: {
-    width: 70,
-    height: 70,
-    alignSelf: 'center',
-    marginTop: 30
+    width: 80,
+    height: 80,
+    // alignSelf: 'center',   // only single sum item
+    marginTop: 50,
+    marginBottom: 30,
+    borderRadius: 40,
+    borderWidth: 2,
+    borderColor: 'white'
   },
 
-  name: {
+  textInput: {
     backgroundColor: '#FFF',
-    height: 50,
-    marginTop: 10,
+    height: 38,
+    marginBottom: 2,
     fontSize: 15,
-  },
-
-  password: {
-    backgroundColor: '#FFF',
-    height: 50,
-    fontSize: 15,
+    textAlign: 'center'
   },
 
   login: {
     height: 40,
+    width: 300,
     marginLeft: 10,
     marginRight: 10,
     backgroundColor: '#1E90FF',
     marginTop: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
     borderRadius: 5,
+    justifyContent: 'center',    // align sum items
+    alignItems: 'center'          // align sum items
   },
 
-  loginMethod:{
+  settings: {
+    width: 300,
+    flexDirection: 'row',
+    marginTop: 13,
+    justifyContent: 'space-between'
+  },
+
+  loginMethods:{
+    width: 300,
+    flexDirection: 'row',
+    marginTop: 13,
+    // alignItems: 'flex-end'     // sub itmes align to bottom
+    alignItems: 'center',     // sub itmes align to center
+    alignSelf: 'flex-end'       // login methods to bottom
+  },
+
+  loginIcon: {
     width: 40,
     height: 40,
-    alignSelf: 'center',
-    marginTop: 30
+    margin: 2,
+    borderRadius:20
   }
 });
