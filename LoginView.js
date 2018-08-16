@@ -4,13 +4,22 @@ import {
   TextInput,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
+import Dimensions from 'Dimensions';
+let width = Dimensions.get('window').width;
+  
 
 export default class LoginView extends Component {
+
+  rendPress(){
+    console.log('Mouse click');
+  }
+
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.container} onPress={this.rendPress()}>
         <Image style={styles.avatar} source={require('./imgs/avatar.png')} />
         <TextInput style={styles.textInput}
           placeholder='QQ号/手机号/邮箱ddd'
@@ -20,9 +29,11 @@ export default class LoginView extends Component {
           placeholder={'密码'}
           underlineColorAndroid={'transparent'}
           secureTextEntry={true} />
-        <View style={styles.login}>
-          <Text style={{ color: '#FFF' }}>登录</Text>
-        </View>
+        <TouchableOpacity activeOpacity={0.5}>
+          <View style={styles.login} onPress={this.rendPress()}>
+            <Text style={{ color: '#FFF' }}>登录</Text>
+          </View>
+        </TouchableOpacity>
         <View style={styles.settings}>
           <Text style={{ color: '#1E90FF' }}>
             忘记密码？
@@ -62,7 +73,7 @@ const styles = StyleSheet.create({
 
   textInput: {
     backgroundColor: '#FFF',
-    width:300,
+    width: width * 0.8,
     height: 38,
     marginBottom: 2,
     fontSize: 15,
@@ -71,7 +82,7 @@ const styles = StyleSheet.create({
 
   login: {
     height: 40,
-    width: 300,
+    width: width * 0.8,
     marginLeft: 10,
     marginRight: 10,
     backgroundColor: '#1E90FF',
@@ -80,28 +91,30 @@ const styles = StyleSheet.create({
     justifyContent: 'center',    // align sum items
     alignItems: 'center'          // align sum items
   },
-
+  loginInnerView:{
+    backgroundColor: 'red',
+  },
   settings: {
-    width: 300,
+    width: width * 0.8,
     flexDirection: 'row',
     marginTop: 13,
     justifyContent: 'space-between'
   },
 
-  loginMethods:{
+  loginMethods: {
     flexDirection: 'row',
     marginTop: 13,
     // alignItems: 'flex-end'     // sub itmes align to bottom in the cross direction,
     alignItems: 'center',     // sub itmes align to center in the cross direction,
     position: 'absolute',
     bottom: 10,
-    left:10
+    left: 10
   },
 
   loginIcon: {
     width: 40,
     height: 40,
     margin: 2,
-    borderRadius:20
+    borderRadius: 20
   }
 });
