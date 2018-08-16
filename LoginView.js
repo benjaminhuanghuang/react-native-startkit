@@ -14,12 +14,10 @@ export default class LoginView extends Component {
         <Image style={styles.avatar} source={require('./imgs/avatar.png')} />
         <TextInput style={styles.textInput}
           placeholder='QQ号/手机号/邮箱ddd'
-          numberOfLines={1}
           underlineColorAndroid='transparent'
           autoFocus={false} />
         <TextInput style={styles.textInput}
           placeholder={'密码'}
-          numberOfLines={1}
           underlineColorAndroid={'transparent'}
           secureTextEntry={true} />
         <View style={styles.login}>
@@ -64,6 +62,7 @@ const styles = StyleSheet.create({
 
   textInput: {
     backgroundColor: '#FFF',
+    width:300,
     height: 38,
     marginBottom: 2,
     fontSize: 15,
@@ -90,12 +89,13 @@ const styles = StyleSheet.create({
   },
 
   loginMethods:{
-    width: 300,
     flexDirection: 'row',
     marginTop: 13,
-    // alignItems: 'flex-end'     // sub itmes align to bottom
-    alignItems: 'center',     // sub itmes align to center
-    alignSelf: 'flex-end'       // login methods to bottom
+    // alignItems: 'flex-end'     // sub itmes align to bottom in the cross direction,
+    alignItems: 'center',     // sub itmes align to center in the cross direction,
+    position: 'absolute',
+    bottom: 10,
+    left:10
   },
 
   loginIcon: {
