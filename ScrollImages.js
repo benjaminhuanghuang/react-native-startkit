@@ -126,7 +126,6 @@ ScrollImages.defaultProps = {
     duration: 1000
 };
 
-
 const styles = StyleSheet.create({
     container: {
         marginTop: 25,
