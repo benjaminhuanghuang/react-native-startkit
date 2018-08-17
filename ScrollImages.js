@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
     Image,
-    TextInput,
     StyleSheet,
     Text,
     View,
@@ -30,12 +29,29 @@ export default class ScrollImages extends Component {
         super(props);
 
         this.state = {
-            currentPage : 0
+            currentPage: 0
         }
+    }
+
+    componentDidMount() {
+        // name, fun, interval
+        timer.setTimeout(this, '', () => this.timerFunction(), this.props.duration);
     }
 
     componentWillUnmount() {
         timer.clearTimeout(this);
+    }
+
+    timerFunction() {
+        let scrollView = this.refs.scrollView;
+        let imgCount = ImageData.data.length;
+        let newPage = (this.state.currentPage + 1) > imgCount ? 0 : (this.state.currentPage + 1);
+        this.setState({
+            currentPage: newPage
+        });
+
+        var offsetX = newPage * screenWidth;
+        scrollView.scrollResponderScrollTo({ x: offsetX, y: 0, animated: true });
     }
 
     renderImages() {
@@ -68,8 +84,7 @@ export default class ScrollImages extends Component {
     }
 
 
-    onScrollEnd(e)
-    {
+    onScrollEnd(e) {
         // offset on horizontla
         var offsetX = e.nativeEvent.contentOffset.x;
         // current page
@@ -80,13 +95,25 @@ export default class ScrollImages extends Component {
         });
     }
 
+    onScollBeginDrag()
+    {
+        // Stop timer
+    }
+
+    onScrollEndDrag()
+    {
+        // restart timer
+    }
+
     render() {
         return (
             <View style={styles.container}>
-                <ScrollView horizontal={true}
+                <ScrollView ref='scrollView' horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     pagingEnabled={true}
-                    onMomentumScrollEnd={(e)=>this.onScrollEnd(e)}>
+                    onMomentumScrollEnd={(e) => this.onScrollEnd(e)}
+                    onScrollBeginDrag={(e)=>this.onScollBeginDrag(e)}
+                    onScrollEndDrag={(e)=>this.onScrollEndDrag(e)}>
                     {this.renderImages()}
                 </ScrollView>
                 {this.renderPagingIndicator()}
@@ -94,6 +121,11 @@ export default class ScrollImages extends Component {
         );
     }
 }
+
+ScrollImages.defaultProps = {
+    duration: 1000
+};
+
 
 const styles = StyleSheet.create({
     container: {
