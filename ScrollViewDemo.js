@@ -29,7 +29,7 @@ export default class ScrollViewDemo extends Component {
         let colors = ['red', 'green', 'blud', 'yellow', 'purple'];
         let chidren = colors.map((c, i) => {
             return (
-                <View key={i} style={{backgroundColor:c}}>
+                <View key={i} style={{backgroundColor:c, height:100}}>
                     <Text>
                         {c}
                     </Text>

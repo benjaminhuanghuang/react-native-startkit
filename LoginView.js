@@ -20,7 +20,7 @@ export default class LoginView extends Component {
   render() {
     return (
       <View style={styles.container} onPress={this.rendPress()}>
-        <Image style={styles.avatar} source={require('./imgs/avatar.png')} />
+        <Image style={styles.avatar} source={require('./imgs/login/avatar.png')} />
         <TextInput style={styles.textInput}
           placeholder='QQ号/手机号/邮箱ddd'
           underlineColorAndroid='transparent'
@@ -44,9 +44,9 @@ export default class LoginView extends Component {
         </View>
         <View style={styles.loginMethods}>
           <Text>其他登录方式</Text>
-          <Image style={styles.loginIcon} source={require('./imgs/qq.png')} />
-          <Image style={styles.loginIcon} source={require('./imgs/wechat.png')} />
-          <Image style={styles.loginIcon} source={require('./imgs/weibo.png')} />
+          <Image style={styles.loginIcon} source={require('./imgs/login/qq.png')} />
+          <Image style={styles.loginIcon} source={require('./imgs/login/wechat.png')} />
+          <Image style={styles.loginIcon} source={require('./imgs/login/weibo.png')} />
         </View>
       </View>
     );
