@@ -34,24 +34,25 @@ export default class ScrollImages extends Component {
     }
 
     componentDidMount() {
-        // name, fun, interval
-        timer.setTimeout(this, '', () => this.timerFunction(), this.props.duration);
+       this.interval = setInterval(()=>this.timerFunction(), this.props.duration)
     }
 
     componentWillUnmount() {
-        timer.clearTimeout(this);
+        cleatInterval(this.interval);
     }
 
     timerFunction() {
         let scrollView = this.refs.scrollView;
         let imgCount = ImageData.data.length;
-        let newPage = (this.state.currentPage + 1) > imgCount ? 0 : (this.state.currentPage + 1);
+        let newPage = (this.state.currentPage + 1 >= imgCount) ? 0 : (this.state.currentPage + 1);
+        console.log("currentPage", this.state.currentPage)
+        console.log("newPage", newPage)
         this.setState({
             currentPage: newPage
+        }, ()=>{
+            var offsetX = newPage * screenWidth;
+            scrollView.scrollResponderScrollTo({ x: offsetX, y: 0, animated: true });
         });
-
-        var offsetX = newPage * screenWidth;
-        scrollView.scrollResponderScrollTo({ x: offsetX, y: 0, animated: true });
     }
 
     renderImages() {
@@ -123,7 +124,7 @@ export default class ScrollImages extends Component {
 }
 
 ScrollImages.defaultProps = {
-    duration: 1000
+    duration: 2000
 };
 
 const styles = StyleSheet.create({

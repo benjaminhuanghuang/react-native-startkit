@@ -15,6 +15,7 @@ import {
 import LoginView from './LoginView.js';
 import ScrollViewDemo from './ScrollViewDemo.js';
 import ScrollImages from './ScrollImages.js';
+import NavigationDemo from './NavigationDemo';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -22,7 +23,8 @@ export default class App extends Component<Props> {
     return (
       // <LoginView />
       // <ScrollViewDemo />
-      <ScrollImages />
+      // <ScrollImages />
+      <NavigationDemo />
     );
   }
 }
