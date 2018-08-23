@@ -16,6 +16,7 @@ import LoginView from './LoginView.js';
 import ScrollViewDemo from './ScrollViewDemo.js';
 import ScrollImages from './ScrollImages.js';
 import NavigationDemo from './NavigationDemo';
+import ListViewMovie from './ListViewMovie';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -24,7 +25,8 @@ export default class App extends Component<Props> {
       // <LoginView />
       // <ScrollViewDemo />
       // <ScrollImages />
-      <NavigationDemo />
+      // <NavigationDemo />
+      <ListViewMovie/>
     );
   }
 }
