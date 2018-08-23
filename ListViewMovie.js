@@ -9,7 +9,8 @@ import {
     Text,
     View,
     ListView,
-    SafeAreaView
+    SafeAreaView,
+    ScrollView
 } from 'react-native';
 
 import Dimensions from 'Dimensions';
@@ -56,7 +57,7 @@ export default class ListyViewMovie extends Component {
 
     _renderRow(rowData, sectionID, rowID) {
         return (
-            <SafeAreaView>
+            <ScrollView>
                 <View style={styles.row}>
                     <Image style={styles.thumb}
                         source={{
@@ -75,7 +76,7 @@ export default class ListyViewMovie extends Component {
                     </View>
                 </View>
                 <View style={styles.separator} />
-            </SafeAreaView>
+            </ScrollView>
         );
     };
 }
