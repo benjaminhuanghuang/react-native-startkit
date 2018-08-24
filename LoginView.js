@@ -29,8 +29,8 @@ export default class LoginView extends Component {
           placeholder={'密码'}
           underlineColorAndroid={'transparent'}
           secureTextEntry={true} />
-        <TouchableOpacity activeOpacity={0.5}>
-          <View style={styles.login} onPress={this.rendPress()}>
+        <TouchableOpacity activeOpacity={0.5} onPress={this.rendPress()}>
+          <View style={styles.login}>
             <Text style={{ color: '#FFF' }}>登录</Text>
           </View>
         </TouchableOpacity>
